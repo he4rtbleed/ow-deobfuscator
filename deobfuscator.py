@@ -23,6 +23,8 @@ def run():
             if not 'nop' in generate_disasm_line(next_head(curr_addr), 1):
                 if 'nop     dword ptr' in prev_disasm:
                     is_obfuscated = True
+                elif 'nop     word ptr' in prev_disasm:
+                    is_obfuscated = True
                 elif 'xchg' in prev_disasm:
                     is_obfuscated = True
                 elif 'mov     ah, ah' in prev_disasm:
